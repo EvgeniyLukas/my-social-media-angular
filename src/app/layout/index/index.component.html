@@ -5,8 +5,13 @@
       <mat-card-title>{{post.title}}</mat-card-title>
       <mat-card-subtitle>{{post.location}}</mat-card-subtitle>
     </mat-card-header>
-    <img mat-card-image [src]="formatImage(post.image)" alt="post image">
+
+    <div class="blog-thumb">
+      <img mat-card-image [src]="formatImage(post.image)" alt="post image">
+    </div>
+
     <mat-card-subtitle align="start">Posted by {{post.username}}</mat-card-subtitle>
+
     <mat-card-content>
       <p>{{post.caption}}</p>
     </mat-card-content>
@@ -27,10 +32,69 @@
 
     <mat-form-field class="w-100">
       <mat-label>Leave a comment...</mat-label>
-      <input (keyup.enter)="postComment($any($event.target).value, post.id!, i)" matInput #message
-             maxlength="128">
+      <input
+        (keyup.enter)="postComment($any($event.target).value, post.id!, i); $any($event.target).value = ''"
+        matInput #message
+        maxlength="128">
       <mat-hint align="end">{{message.value.length}} / 128</mat-hint>
     </mat-form-field>
 
   </mat-card>
+
+
+  <section class="blog-posts">
+    <div class="container" *ngFor="let post of posts; let i = index">
+      <div class="row">
+        <div class="col-lg-8">
+
+          <div class="all-blog-posts">
+            <div class="row">
+              <div class="col-lg-12">
+                <div class="blog-post">
+
+                  <div class="blog-thumb">
+                    <img [src]="formatImage(post.image)" alt="post image">
+                  </div>
+
+                  <div class="down-content">
+                    Posted by:
+                    <span>{{post.username}}</span>
+                    <a href="post-details.html"><h4>{{post.title}}</h4></a>
+                    <ul class="post-info">
+                      <li><a href="#">Admin</a></li>
+                      <li><a href="#">May 31, 2020</a></li>
+                      <li><a href="#">12 Comments</a></li>
+                    </ul>
+
+                    <p>{{post.caption}}
+                      <a rel="nofollow" href="https://templatemo.com/contact" target="_parent">Contact
+                        TemplateMo</a> for more info. Thank you.</p>
+
+                    <div class="post-options">
+                      <div class="row">
+                        <div class="col-6">
+                          <ul class="post-tags">
+                            <li><i class="fa fa-tags"></i></li>
+                            <li><a href="#">Beauty</a>,</li>
+                            <li><a href="#">Nature</a></li>
+                          </ul>
+                        </div>
+                        <div class="col-6">
+                          <ul class="post-share">
+                            <li><i class="fa fa-share-alt"></i></li>
+                            <li><a href="#">Facebook</a>,</li>
+                            <li><a href="#"> Twitter</a></li>
+                          </ul>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
 </div>
