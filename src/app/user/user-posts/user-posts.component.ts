@@ -4,6 +4,8 @@ import {PostService} from "../../services/post.service";
 import {CommentService} from "../../services/comment.service";
 import {ImageUploadService} from "../../services/image-upload.service";
 import {NotificationService} from "../../services/notification.service";
+import {MatDialog, MatDialogConfig} from "@angular/material/dialog";
+import {UpdatePostComponent} from "../update-post/update-post.component";
 
 
 @Component({
@@ -15,10 +17,12 @@ export class UserPostsComponent implements OnInit {
 
   isUserPostsLoaded = false;
   posts!: Post [];
+  post!: Post;
 
 
   constructor(private postService: PostService,
               private imageService: ImageUploadService,
+              private dialog: MatDialog,
               private commentService: CommentService,
               private notificationService: NotificationService) {
   }
@@ -83,4 +87,11 @@ export class UserPostsComponent implements OnInit {
     });
   }
 
+  openEditDialog(post: Post): void {
+    console.log("dialog = " + post.title)
+    // const dialogPostEditConfig = new MatDialogConfig();
+    // dialogPostEditConfig.width = '400px';
+    // dialogPostEditConfig.data = {post: post}
+    this.dialog.open(UpdatePostComponent, {maxWidth: '400px', data: [post]});
+  }
 }

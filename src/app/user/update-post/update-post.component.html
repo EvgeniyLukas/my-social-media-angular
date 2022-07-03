@@ -1,0 +1,32 @@
+<div>
+  <h2>Edit Post Data</h2>
+  <form [formGroup]="profileEditForm">
+
+    <mat-form-field class="w-100" appearance="outline">
+      <mat-label>Title</mat-label>
+      <input matInput
+             formControlName="title">
+    </mat-form-field>
+    <mat-form-field class="w-100" appearance="outline">
+      <mat-label>Caption</mat-label>
+      <input matInput
+             formControlName="caption">
+    </mat-form-field>
+    <mat-form-field class="w-100" appearance="outline">
+      <mat-label>Location</mat-label>
+      <input matInput
+             formControlName="location">
+    </mat-form-field>
+
+    <div class="row">
+      <button (click)="closeDialog()" class="w-50"
+              mat-button mat-dialog-close disableRipple>
+        Cancel
+      </button>
+      <button color="primary" class="w-50" [disabled]="profileEditForm.invalid" (click)="submit()" mat-button disableRipple>
+        Update
+      </button>
+    </div>
+  </form>
+</div>
+

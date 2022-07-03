@@ -17,6 +17,10 @@ export class PostService {
     return this.http.post(POST_API + 'create', post);
   }
 
+  updatePost(post: Post): Observable<any> {
+    return this.http.post(POST_API + 'update', post);
+  }
+
   getAllPosts(): Observable<any> {
     return this.http.get(POST_API + 'all');
   }

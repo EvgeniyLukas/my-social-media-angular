@@ -7,6 +7,7 @@ import {AuthGuardService} from "./helper/auth-guard.service";
 import {ProfileComponent} from "./user/profile/profile.component";
 import {UserPostsComponent} from "./user/user-posts/user-posts.component";
 import {AddPostComponent} from "./user/add-post/add-post.component";
+import {UpdatePostComponent} from "./user/update-post/update-post.component";
 
 const routes: Routes = [
   //когда попадаем по пути "/login" запускается LoginComponent

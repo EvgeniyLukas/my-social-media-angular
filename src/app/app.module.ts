@@ -16,6 +16,7 @@ import {ProfileComponent} from "./user/profile/profile.component";
 import {AddPostComponent} from "./user/add-post/add-post.component";
 import {EditUserComponent} from "./user/edit-user/edit-user.component";
 import {UserPostsComponent} from "./user/user-posts/user-posts.component";
+import {UpdatePostComponent} from './user/update-post/update-post.component';
 
 @NgModule({
   declarations: [
@@ -27,7 +28,8 @@ import {UserPostsComponent} from "./user/user-posts/user-posts.component";
     ProfileComponent,
     AddPostComponent,
     EditUserComponent,
-    UserPostsComponent
+    UserPostsComponent,
+    UpdatePostComponent
   ],
   imports: [
     AppRoutingModule,

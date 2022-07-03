@@ -1,7 +1,12 @@
+
+
 <div *ngIf="isUserPostsLoaded" xmlns="http://www.w3.org/1999/html">
-  <div style="text-align: right">
+
+  <div style="text-align: right; margin-top: 20px">
     <button mat-flat-button color="primary" routerLink="/profile/add">Add Post</button>
   </div>
+
+
 
   <h2>{{posts.length}} Posts</h2>
 
@@ -11,15 +16,22 @@
       <mat-card-title>{{post.title}}</mat-card-title>
       <mat-card-subtitle>{{post.location}}</mat-card-subtitle>
     </mat-card-header>
+
     <img mat-card-image [src]="formatImage(post.image)" alt="post image">
+
     <mat-card-content>
       <p>
         {{post.caption}}
       </p>
     </mat-card-content>
 
+    <div style="text-align: right">
+      <button mat-flat-button color="primary" (click)="openEditDialog(post)">Update Post</button>
+    </div>
+
     <div style="text-align: left">
-      <p *ngFor="let comment of post.comments; let c = index"><span style="font-weight: 500">{{comment.username}}</span>: {{comment.message}}
+      <p *ngFor="let comment of post.comments; let c = index">
+        <span style="font-weight: 500">{{comment.username}}</span>: {{comment.message}}
         <button color="accent" mat-button (click)="deleteComment(comment.id, i, c)">
           <mat-icon color="accent">clear</mat-icon>
         </button>
